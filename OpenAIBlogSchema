@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: Blog Optimizer API
+  version: 1.0.0
+  description: This API handles blog optimization tasks, including analyzing blog posts, generating summaries, and reformatting content for better readability and SEO performance.
+paths:
+  /old:
+    post:
+      summary: Analyze old blog post for SEO improvements
+      description: Fetch and analyze the content from a provided blog link, and identify SEO improvement opportunities.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                blog_url:
+                  type: string
+                  description: The URL of the blog to be analyzed.
+      responses:
+        '200':
+          description: Successful analysis
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  blog_title:
+                    type: string
+                    description: The title of the blog post.
+                  seo_analysis:
+                    type: string
+                    description: The SEO audit and analysis.
+                  summary:
+                    type: string
+                    description: A short summary of the blog content.
+                  suggested_keywords:
+                    type: array
+                    items:
+                      type: string
+                    description: List of suggested SEO keywords.
+                  meta_description:
+                    type: string
+                    description: Meta description for the blog post.
+                  formatted_content:
+                    type: string
+                    description: The reformatted blog content ready for publishing.
